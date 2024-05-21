@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import Modal from 'react-modal';
+import React, { useState } from "react";
+import Modal from "react-modal";
 import form_1 from "../assets/form_1.png";
 
-Modal.setAppElement('#root'); // Assuming your root element has an id of 'root'
+Modal.setAppElement("#root"); // Assuming your root element has an id of 'root'
 
 const Validation_1 = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -11,14 +11,19 @@ const Validation_1 = () => {
   const closeModal = () => setModalIsOpen(false);
 
   return (
-    <div className="flex flex-col items-center justify-start min-h-screen bg-gray-100 overflow-x-hidden">
-      <div className='w-[20rem] h-[4rem] bg-neutral-300 text-center mb-10 items-center pt-3 mt-10 rounded'>
-        <h2 className='text-2xl text-black font-semibold '>1. HTML5 Form Validation</h2>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-zinc-800 overflow-x-hidden">
+      <div className="w-[20rem] h-[4rem] bg-neutral-300 text-center mb-10 items-center pt-3 mt-10 rounded">
+        <h2 className="text-2xl text-black font-semibold ">
+          1. HTML5 Form Validation
+        </h2>
       </div>
       <form className="bg-gray-200 p-6 rounded shadow-md w-full max-w-sm">
         <div className="mb-4">
-          <label htmlFor="numberInput" className="block text-gray-700 text-sm font-bold mb-2">
-            Number
+          <label
+            htmlFor="numberInput"
+            className="block text-gray-700 text-sm font-bold mb-2"
+          >
+            Enter Your Number
           </label>
           <input
             type="text"
@@ -38,10 +43,10 @@ const Validation_1 = () => {
           </button>
         </div>
       </form>
-      <div className='flex justify-end w-full max-w-sm mt-4'>
+      <div className="flex justify-end w-full max-w-sm mt-4">
         <button
           onClick={openModal}
-          className='bg-gray-300 hover:bg-gray-400 text-black font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:ring-gray-300'
+          className="bg-gray-300 hover:bg-gray-400 text-black font-bold py-2 px-4 rounded focus:outline-none focus:ring focus:ring-gray-300"
         >
           Source Code
         </button>
@@ -55,14 +60,20 @@ const Validation_1 = () => {
       >
         <div className="flex justify-between items-center">
           <h2 className="text-2xl font-bold">Source Code</h2>
-          <button onClick={closeModal} className="close-button">Close</button>
+          <button onClick={closeModal} className="close-button">
+            Close
+          </button>
         </div>
         <div className="mt-4">
-          <img src={form_1} alt="Source Code" className="w-full h-auto rounded" />
+          <img
+            src={form_1}
+            alt="Source Code"
+            className="w-full h-auto rounded"
+          />
         </div>
       </Modal>
     </div>
   );
-}
+};
 
 export default Validation_1;

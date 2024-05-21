@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import Modal from 'react-modal';
+import Form_4 from "../assets/Form_4.png";
+
+Modal.setAppElement('#root'); 
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required('Name is required'),
   email: Yup.string().email('Invalid email format').required('Email is required'),
 });
 
-const Validation_4 = () => (
-  <div className="max-w-md mx-auto">
+const Validation_4 = () => {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const openModal = () => setModalIsOpen(true);
+  const closeModal = () => setModalIsOpen(false);
+
+
+return(
+  <div className="flex flex-col items-center justify-center min-h-screen bg-zinc-800">
     <Formik
       initialValues={{ name: '', email: '' }}
       validationSchema={validationSchema}
@@ -17,7 +28,7 @@ const Validation_4 = () => (
       }}
     >
       {() => (
-         <div className="flex flex-col items-center justify-start min-h-screen">
+         <div className="flex flex-col items-center justify-center min-h-screen">
          <div className='w-[20rem] h-[5rem] bg-neutral-300 text-center mb-10 items-center pt-3 rounded'>
                  <h2 className='text-2xl text-black font-semibold'>4. Using Validation Libraries (Formik,Yup)</h2>
              </div>
@@ -54,10 +65,41 @@ const Validation_4 = () => (
             Submit
           </button>
         </Form>
+        <div className='flex justify-end w-full max-w-sm mt-4'>
+        <button
+          onClick={openModal}
+          className='bg-gray-300 hover:bg-gray-400 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
+        >
+          Source Code
+        </button>
+      </div>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Source Code Modal"
+        className="modal"
+        overlayClassName="overlay"
+      >
+        <div className="flex justify-between items-center">
+          <h2 className="text-2xl font-bold">Source Code</h2>
+          <button onClick={closeModal} className="close-button">
+            Close
+          </button>
+        </div>
+        <div className="mt-4">
+          <img
+            src={Form_4}
+            alt="Source Code"
+            className="w-full h-auto rounded"
+          />
+        </div>
+      </Modal>
     </div>
       )}
     </Formik>
   </div>
 );
+
+}
 
 export default Validation_4;

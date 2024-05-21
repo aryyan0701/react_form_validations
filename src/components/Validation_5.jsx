@@ -1,13 +1,23 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useForm } from 'react-hook-form';
+import Modal from 'react-modal';
+import Form_5 from "../assets/Form_5.png";
+
+Modal.setAppElement('#root'); 
 
 const Validation_5 = () => {
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const openModal = () => setModalIsOpen(true);
+  const closeModal = () => setModalIsOpen(false);
+
   const { register, handleSubmit, formState: { errors } } = useForm();
   const onSubmit = data => console.log(data);
 
   return (
     
-    <div className="flex flex-col items-center justify-start min-h-screen">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-zinc-800">
     <div className='w-[20rem] h-[4rem] bg-neutral-300 text-center mb-10 items-center pt-3 rounded'>
             <h2 className='text-2xl text-black font-semibold'>5. Using react-hook-form</h2>
         </div>
@@ -63,6 +73,35 @@ const Validation_5 = () => {
           Submit
         </button>
       </form>
+      <div className='flex justify-end w-full max-w-sm mt-4'>
+        <button
+          onClick={openModal}
+          className='bg-gray-300 hover:bg-gray-400 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
+        >
+          Source Code
+        </button>
+      </div>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Source Code Modal"
+        className="modal"
+        overlayClassName="overlay"
+      >
+        <div className="flex justify-between items-center">
+          <h2 className="text-2xl font-bold">Source Code</h2>
+          <button onClick={closeModal} className="close-button">
+            Close
+          </button>
+        </div>
+        <div className="mt-4">
+          <img
+            src={Form_5}
+            alt="Source Code"
+            className="w-full h-auto rounded"
+          />
+        </div>
+      </Modal>
     </div>
   );
 };
