@@ -7,9 +7,9 @@ const Validation_5 = () => {
 
   return (
     
-    <div className="flex flex-col items-center justify-center min-h-screen">
-    <div className='w-[25rem] h-[4rem] bg-neutral-300 text-center mb-10 items-center pt-3 rounded'>
-            <h2 className='text-2xl text-black '>Using react-hook-form</h2>
+    <div className="flex flex-col items-center justify-start min-h-screen">
+    <div className='w-[20rem] h-[4rem] bg-neutral-300 text-center mb-10 items-center pt-3 rounded'>
+            <h2 className='text-2xl text-black font-semibold'>5. Using react-hook-form</h2>
         </div>
       <form onSubmit={handleSubmit(onSubmit)} className="bg-white shadow-md rounded px-8 pt-6 pb-8">
         <div className="mb-4">

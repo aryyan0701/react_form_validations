@@ -46,9 +46,9 @@ const Validation_3 = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-          <div className='w-[25rem] h-[4rem] bg-neutral-300 text-center mb-10 items-center pt-3 rounded'>
-        <h2 className='text-2xl text-black '>Using Controlled Component</h2>
+    <div className="flex flex-col items-center justify-start min-h-screen bg-gray-100">
+          <div className='w-[20rem] h-[5rem] bg-neutral-300 text-center mb-10 items-center pt-3 rounded'>
+        <h2 className='text-2xl text-black font-semibold'>3. Using Controlled Component</h2>
     </div>
       <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md w-full max-w-sm">
       <div className="mb-4">

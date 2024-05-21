@@ -17,9 +17,9 @@ const Validation_4 = () => (
       }}
     >
       {() => (
-         <div className="flex flex-col items-center justify-center min-h-screen">
-         <div className='w-[25rem] h-[5rem] bg-neutral-300 text-center mb-10 items-center pt-3 rounded'>
-                 <h2 className='text-2xl text-black '>Using Validation Libraries (Formik,Yup)</h2>
+         <div className="flex flex-col items-center justify-start min-h-screen">
+         <div className='w-[20rem] h-[5rem] bg-neutral-300 text-center mb-10 items-center pt-3 rounded'>
+                 <h2 className='text-2xl text-black font-semibold'>4. Using Validation Libraries (Formik,Yup)</h2>
              </div>
         <Form  className="bg-white p-6 rounded shadow-md w-full max-w-sm">
           <div className="mb-4">
