@@ -12,8 +12,8 @@ function Footer() {
           This application demonstrates various form validation techniques in React using HTML5 and custom validation methods. It provides a user-friendly interface to showcase how to effectively validate form inputs, ensuring data integrity and enhancing user experience.
           </p>
           <h2 className="text-3xl font-semibold mt-5 mb-3">Check this out</h2>
-          <a href="https://github.com/aryyan0701" className="text-black text-3xl hover:text-zinc-900">
-          <p className="text-center lg:text-left max-w-2xl lg:text-xl">
+          <a href="https://aryankadam.hashnode.dev/" className="text-black hover:text-zinc-900">
+          <p className="text-center lg:text-left max-w-2xl text-xl">
           My prsonal hashnode blog on form validations <FaHashnode className='inline text-align-center'/>
           </p></a>
         </div>
