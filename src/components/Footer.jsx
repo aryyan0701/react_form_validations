@@ -31,7 +31,7 @@ function Footer() {
           </div>
           <div className="flex flex-col lg:flex-col items-center lg:items-center space-y-0 lg:space-y-2 lg:space-x-2 mt-4">
             <span className='text-xl' >Source code available on</span>
-            <a href="https://github.com/aryyan0701/text-summarization" className="text-black text-xl hover:text-blue-400 inline">ayyan_0701
+            <a href="https://github.com/aryyan0701/react_form_validations" className="text-black text-xl hover:text-blue-400 inline">ayyan_0701
               <FaGithubSquare className='inline align-text-center ml-1 text-2xl'/>
             </a>
           </div>
