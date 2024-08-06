@@ -1,23 +1,36 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import form_1 from "../assets/form_1.png";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-Modal.setAppElement("#root"); // Assuming your root element has an id of 'root'
+Modal.setAppElement("#root");
 
 const Validation_1 = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [number, setNumber] = useState("");
 
   const openModal = () => setModalIsOpen(true);
   const closeModal = () => setModalIsOpen(false);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    toast("Form submitted successfully.");
+    setNumber("");
+  };
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-zinc-800 overflow-x-hidden">
+      <ToastContainer />
       <div className="w-[20rem] h-[4rem] bg-neutral-300 text-center mb-10 items-center pt-3 mt-10 rounded">
-        <h2 className="text-2xl text-black font-semibold ">
+        <h2 className="text-2xl text-black font-semibold">
           1. HTML5 Form Validation
         </h2>
       </div>
-      <form className="bg-gray-200 p-6 rounded shadow-md w-full max-w-sm">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-gray-200 p-6 rounded shadow-md w-full max-w-sm"
+      >
         <div className="mb-4">
           <label
             htmlFor="numberInput"
@@ -29,6 +42,8 @@ const Validation_1 = () => {
             type="text"
             required
             pattern="\d+"
+            value={number}
+            onChange={(e) => setNumber(e.target.value)}
             title="Only numbers are allowed"
             id="numberInput"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring focus:border-blue-300"

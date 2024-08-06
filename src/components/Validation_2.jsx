@@ -1,20 +1,21 @@
-import React, { useState } from 'react';
-import Modal from 'react-modal';
+import React, { useState } from "react";
+import Modal from "react-modal";
 import Form_2 from "../assets/Form_2.png";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-Modal.setAppElement('#root'); 
+Modal.setAppElement("#root");
 
 const Validation_2 = () => {
-
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const openModal = () => setModalIsOpen(true);
   const closeModal = () => setModalIsOpen(false);
 
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    number: '',
+    name: "",
+    email: "",
+    number: "",
   });
   const [errors, setErrors] = useState({});
 
@@ -27,27 +28,44 @@ const Validation_2 = () => {
     e.preventDefault();
     const newErrors = {};
 
-    if (!formData.name) newErrors.name = 'Name is required';
-    if (!formData.email) newErrors.email = 'Email is required';
-    if (!formData.number) newErrors.number = 'Number is required';
-    if (formData.email && !/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Email address is invalid';
-    if (formData.number && !/^\d+$/.test(formData.number)) newErrors.number = 'Only numbers are allowed';
+    if (!formData.name) newErrors.name = "Name is required";
+    if (!formData.email) newErrors.email = "Email is required";
+    if (!formData.number) newErrors.number = "Number is required";
+    if (formData.email && !/\S+@\S+\.\S+/.test(formData.email))
+      newErrors.email = "Email address is invalid";
+    if (formData.number && !/^\d+$/.test(formData.number))
+      newErrors.number = "Only numbers are allowed";
 
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      console.log('Form submitted with values:', formData);
+      console.log("Form submitted with values:", formData);
+      toast("Form submitted successfully.");
+      setFormData({
+        name: "",
+        email: "",
+        number: "",
+      })
     }
   };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-zinc-800">
-          <div className='w-[20rem] h-[4rem] bg-neutral-300 text-center mb-10 items-center pt-3 rounded'>
-        <h2 className='text-2xl text-black font-semibold'>2. Manual Validation</h2>
-    </div>
-      <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md w-full max-w-sm">
+      <ToastContainer />
+      <div className="w-[20rem] h-[4rem] bg-neutral-300 text-center mb-10 items-center pt-3 rounded">
+        <h2 className="text-2xl text-black font-semibold">
+          2. Manual Validation
+        </h2>
+      </div>
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white p-6 rounded shadow-md w-full max-w-sm"
+      >
         <div className="mb-4">
-          <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">
+          <label
+            htmlFor="name"
+            className="block text-gray-700 text-sm font-bold mb-2"
+          >
             Name
           </label>
           <input
@@ -56,15 +74,20 @@ const Validation_2 = () => {
             value={formData.name}
             onChange={handleChange}
             className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
-              errors.name ? 'border-red-500' : ''
+              errors.name ? "border-red-500" : ""
             }`}
             placeholder="Name"
           />
-          {errors.name && <p className="text-red-500 text-xs italic">{errors.name}</p>}
+          {errors.name && (
+            <p className="text-red-500 text-xs italic">{errors.name}</p>
+          )}
         </div>
 
         <div className="mb-4">
-          <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">
+          <label
+            htmlFor="email"
+            className="block text-gray-700 text-sm font-bold mb-2"
+          >
             Email
           </label>
           <input
@@ -73,15 +96,20 @@ const Validation_2 = () => {
             value={formData.email}
             onChange={handleChange}
             className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
-              errors.email ? 'border-red-500' : ''
+              errors.email ? "border-red-500" : ""
             }`}
             placeholder="Email"
           />
-          {errors.email && <p className="text-red-500 text-xs italic">{errors.email}</p>}
+          {errors.email && (
+            <p className="text-red-500 text-xs italic">{errors.email}</p>
+          )}
         </div>
 
         <div className="mb-4">
-          <label htmlFor="number" className="block text-gray-700 text-sm font-bold mb-2">
+          <label
+            htmlFor="number"
+            className="block text-gray-700 text-sm font-bold mb-2"
+          >
             Number
           </label>
           <input
@@ -90,13 +118,15 @@ const Validation_2 = () => {
             value={formData.number}
             onChange={handleChange}
             className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${
-              errors.number ? 'border-red-500' : ''
+              errors.number ? "border-red-500" : ""
             }`}
             pattern="\d*"
             title="Only numbers are allowed"
             placeholder="Number"
           />
-          {errors.number && <p className="text-red-500 text-xs italic">{errors.number}</p>}
+          {errors.number && (
+            <p className="text-red-500 text-xs italic">{errors.number}</p>
+          )}
         </div>
 
         <div className="flex items-center justify-between">
@@ -108,10 +138,10 @@ const Validation_2 = () => {
           </button>
         </div>
       </form>
-      <div className='flex justify-end w-full max-w-sm mt-4'>
+      <div className="flex justify-end w-full max-w-sm mt-4">
         <button
           onClick={openModal}
-          className='bg-gray-300 hover:bg-gray-400 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
+          className="bg-gray-300 hover:bg-gray-400 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
           Source Code
         </button>

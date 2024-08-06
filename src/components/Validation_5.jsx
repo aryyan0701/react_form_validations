@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import { useForm } from 'react-hook-form';
 import Modal from 'react-modal';
 import Form_5 from "../assets/Form_5.png";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 Modal.setAppElement('#root'); 
 
@@ -12,12 +14,17 @@ const Validation_5 = () => {
   const openModal = () => setModalIsOpen(true);
   const closeModal = () => setModalIsOpen(false);
 
-  const { register, handleSubmit, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+    toast("Form submitted successfully.");
+    reset();
+  }
 
   return (
     
     <div className="flex flex-col items-center justify-center min-h-screen bg-zinc-800">
+      <ToastContainer/>
     <div className='w-[20rem] h-[4rem] bg-neutral-300 text-center mb-10 items-center pt-3 rounded'>
             <h2 className='text-2xl text-black font-semibold'>5. Using react-hook-form</h2>
         </div>

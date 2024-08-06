@@ -3,6 +3,8 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import Modal from 'react-modal';
 import Form_4 from "../assets/Form_4.png";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 Modal.setAppElement('#root'); 
 
@@ -20,11 +22,14 @@ const Validation_4 = () => {
 
 return(
   <div className="flex flex-col items-center justify-center min-h-screen bg-zinc-800">
+    <ToastContainer/>
     <Formik
       initialValues={{ name: '', email: '' }}
       validationSchema={validationSchema}
-      onSubmit={(values) => {
+      onSubmit={(values, {resetForm}) => {
         console.log(values);
+      toast("Form submitted successfully.");
+      resetForm();
       }}
     >
       {() => (
